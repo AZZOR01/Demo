@@ -1,7 +1,7 @@
 package com.cpt202.demo.controller;
 
 import com.cpt202.demo.entity.Employee;
-import com.cpt202.demo.repository.EmployeeRepo;
+import com.cpt202.demo.service.EmployeeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,17 +14,19 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+
+
 @Controller
 @RequestMapping("/employee")
 public class EmplyeeController {
 
     @Autowired
-    private EmployeeRepo employeeRepo;
+    private EmployeeService employeeService;
 
     //查询员工
-    @RequestMapping("/show/Employee")
+    @RequestMapping("/selEmployee")
     public String selectEmployee(Model model) {
-        List<Employee> employeeList = employeeRepo.findAll();
+        List<Employee> employeeList = employeeService.findAll();
         model.addAttribute("employeeList", employeeList);
         return "selectEmployee";
     }
@@ -54,23 +56,23 @@ public class EmplyeeController {
         employee.setEmployeeAccount(account);
         employee.setEntryTime(nowDay);
 
-        employeeRepo.insertEmployee(employee);
+        employeeService.insertEmployee(employee);
 
-        return "redirect:show/Employee";
+        return "redirect:selEmployee";
 
     }
 
     //删除员工
     @RequestMapping("/delEmployee")
     public String deleteEmployee(Integer employeeAccount) {
-        employeeRepo.deleteByEmployeeAccount(employeeAccount);
-        return "redirect:show/Employee";
+        employeeService.deleteByEmployeeAccount(employeeAccount);
+        return "redirect:selEmployee";
     }
 
     //跳转员工修改页面
     @RequestMapping("/toUpdateEmployee")
     public String toUpdateEmployee(Integer employeeAccount, Model model) {
-        List<Employee> employeeList = employeeRepo.selectByEmployeeAccount(employeeAccount);
+        List<Employee> employeeList = employeeService.selectByEmployeeAccount(employeeAccount);
         model.addAttribute("employeeList", employeeList);
         return "updateEmployee";
     }
@@ -78,9 +80,7 @@ public class EmplyeeController {
     //修改员工信息
     @RequestMapping("/updateEmployee")
     public String updateEmployee(Employee employee) {
-        employeeRepo.updateMemberByEmployeeAccount(employee);
-        return "redirect:show/Employee";
+        employeeService.updateMemberByEmployeeAccount(employee);
+        return "redirect:selEmployee";
     }
-
-
 }

@@ -24,7 +24,7 @@ public class ManagerController{
         List <Manager> managers = managerRepo.findAll();
         m.addAttribute("manager", managers);
 
-        return "showManager";
+        return "showManager";   
     }
 
     @GetMapping("/add/manager")

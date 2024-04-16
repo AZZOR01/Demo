@@ -25,6 +25,7 @@
                         <table id="datatablesSimple">
                             <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>工号</th>
                                 <th>姓名</th>
                                 <th>性别</th>
@@ -38,6 +39,7 @@
 
                             <tbody>
                             <tr th:each="emp:${employeeList}">
+                                <td th:text="${emp.ID}"></td>
                                 <td th:text="${emp.employeeAccount}">工号</td>
                                 <td th:text="${emp.employeeName}">姓名</td>
                                 <td th:text="${emp.employeeGender}">性别</td>

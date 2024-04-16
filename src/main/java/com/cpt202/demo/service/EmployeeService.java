@@ -1,33 +1,32 @@
 package com.cpt202.demo.service;
 
 import com.cpt202.demo.entity.Employee;
-import com.cpt202.demo.repository.EmployeeRepo;
+ 
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+ 
+ 
+@Service
+public interface EmployeeService {
+     //查询所有员工
+     List<Employee> findAll();
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-public class EmployeeService {
-    private final EmployeeRepo employeeRepository;
-
-    @Autowired
-    public EmployeeService(EmployeeRepo employeeRepository) {
-        this.employeeRepository = employeeRepository;
-    }
-    
-    public List<Employee> getAllEmployee() {
-        return employeeRepository.findAll();
-    }
-    public Optional<Employee> getEmployeeById(int id) {
-        return employeeRepository.findById(id);
-    }
-
-    public Employee createEmployee(Employee employee) {  
-        return employeeRepository.save(employee);
-    }
-    public void deleteEmployee(int id) {
-        employeeRepository.deleteById(id);
-    }
+     //根据员工账号删除员工
+     Boolean deleteByEmployeeAccount(Integer employeeAccount);
+ 
+     //添加新员工
+     Boolean insertEmployee(Employee employee);
+ 
+     //根据员工账号修改会员信息
+     Boolean updateMemberByEmployeeAccount(Employee employee);
+ 
+     //根据员工账号查询员工
+     List<Employee> selectByEmployeeAccount(Integer employeeAccount);
+ 
+     //查询员工数
+     Integer selectTotalCount();
+ 
+     Employee selectByAccountAndPassword(Employee employee);
 
 }

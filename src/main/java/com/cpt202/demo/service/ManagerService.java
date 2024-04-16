@@ -30,7 +30,9 @@ public class ManagerService {
     public Manager createManager(Manager manager) {  
         return managerRepository.save(manager);
     }
-
+    public void deleteManager(int id) {
+        managerRepository.deleteById(id);
+    }
     // public Manager updateManager(int id, Manager updatedManager) {
     //     // Implement update logic (e.g., update fields)
     //     Optional<Manager> existingManager = managerRepository.findById(id);
@@ -53,9 +55,5 @@ public class ManagerService {
     //     return managerRepository.save(managerToUpdate);
     //     // ...
     // }
-
-    public void deleteManager(int id) {
-        managerRepository.deleteById(id);
-    }
 }
 
