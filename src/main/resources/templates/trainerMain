@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Coach Homepage</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Coaching Dashboard, <span th:text="${coachName}">Coach Name</span>!</h1>
+    </header>
+    <section>
+        <h2>Available Sessions</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Session Type</th>
+                    <th>Book</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="session : ${sessions}">
+                    <td th:text="${session.date}">01/01/2023</td>
+                    <td th:text="${session.time}">10:00 AM</td>
+                    <td th:text="${session.type}">Personal Training</td>
+                    <td><button th:onclick="'location.href=\'/book/' + ${session.id} + '\''">Book Now</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <footer>
+        <p>Thank you for using our service!</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

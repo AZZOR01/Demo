@@ -1,0 +1,21 @@
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
+
+@Controller
+public class CoachController {
+
+    @GetMapping("/")
+    public String showCoachDashboard(Model model) {
+        model.addAttribute("coachName", "John Doe");
+        model.addAttribute("sessions", List.of(
+            new Session("04/24/2024", "10:00 AM", "Personal Training", 1),
+            new Session("04/25/2024", "02:00 PM", "Group Training", 2)
+        ));
+        return "coachHomepage";
+    }
+
+    // Assuming Session class exists with appropriate fields and constructors
+}
