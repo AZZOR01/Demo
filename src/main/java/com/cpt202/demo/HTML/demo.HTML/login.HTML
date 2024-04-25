@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>User Login</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <form action="/submit_login" method="post">
+        <h2>User Login</h2>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{11}" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <label>Select a Role:</label>
+        <label for="customer">
+            <input type="radio" id="customer" name="role" value="customer" required>
+            Customer
+        </label>
+        <label for="coach">
+            <input type="radio" id="coach" name="role" value="coach" required>
+            Coach
+        </label>
+        <label for="manager">
+            <input type="radio" id="manager" name="role" value="manager" required>
+            Manager
+        </label>
+        
+        <div id="forgot_password">
+            <a>Forgot password?</a>
+        </div>
+
+        <button onclick="window.location.href='/src/main/demo.HTML/forgot_password.html'">Forgot Password?</button>
+
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>

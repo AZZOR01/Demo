@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <form action="/api/register" method="post">
+        <h2>User Registration</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="phone">Phone Number (11 digits):</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{11}" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" required>
+        
+        <label for="verification_code">Verification Code:</label>
+        <input type="text" id="verification_code" name="verification_code" required>
+        
+        <div id="generated_code"></div>
+        
+        <button type="button" id="update_code_button">Update Code</button>
+        
+        <label>Select a Role:</label>
+        <label for="customer" class="role-label">
+            Customer
+        </label>
+        <input type="radio" id="customer" name="role" value="customer" required class="role-input">
+        
+        <label for="coach" class="role-label">
+            Coach
+        </label>
+        <input type="radio" id="coach" name="role" value="coach" required class="role-input">
+        
+        <label for="manager" class="role-label">
+            Manager
+        </label>
+        <input type="radio" id="manager" name="role" value="manager" required class="role-input">
+        
+        <div id="invitation_code_container" style="display: none;">
+            <label for="invitation_code">Invitation Code:</label>
+            <input type="text" id="invitation_code" name="invitation_code">
+        </div>
+        <script>
+            document.querySelectorAll('input[name="role"]').forEach(function(radio) {
+                radio.addEventListener('change', function() {
+                    var role = this.value;
+                    var invitationCodeContainer = document.getElementById('invitation_code_container');
+                    if (role === 'coach' || role === 'manager') {
+                        invitationCodeContainer.style.display = 'block';
+                    } else {
+                        invitationCodeContainer.style.display = 'none';
+                    }
+                });
+            });
+        </script>
+        
+        <script>
+            // JavaScript function to generate a random code
+            function generateRandomCode() {
+                var length = 4; // 验证码长度
+                var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; // 可选字符集
+                var code = "";
+                for (var i = 0; i < length; i++) {
+                    var index = Math.floor(Math.random() * charset.length);
+                    code += charset.charAt(index);
+                }
+                return code;
+            }
+            
+            // JavaScript function to update the generated code
+            function updateGeneratedCode() {
+                var generatedCodeContainer = document.getElementById('generated_code');
+                var generatedCode = generateRandomCode();
+                generatedCodeContainer.innerText = generatedCode;
+            }
+            
+            // Event listener for the update code button
+            document.getElementById('update_code_button').addEventListener('click', function() {
+                updateGeneratedCode();
+            });
+            
+            // On page load, generate a random code and display it
+            window.onload = function() {
+                var generatedCodeContainer = document.getElementById('generated_code');
+                var generatedCode = generateRandomCode();
+                generatedCodeContainer.innerText = generatedCode;
+            };
+        </script>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- JavaScript for Update Code button and hiding/showing invitation code -->
+    <script>
+        // ... 现有的 JavaScript 函数和事件监听器 ...
+    </script>
+</body>
+</html>

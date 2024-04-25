@@ -1,0 +1,112 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+form h2 {
+    text-align: center;
+}
+form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+\\registeration_page
+form input[type="text"],
+        form input[type="tel"],
+        form input[type="password"],
+        form input[type="submit"],
+        form input[type="radio"],
+        form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        #invitation_code_container {
+            display: none;
+        }
+        #generated_code {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+\\login_page
+form input[type="tel"],
+form input[type="password"],
+form input[type="submit"],
+form input[type="radio"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+#forgot_password {
+    text-align: right;
+    font-size: 14px;
+}
+
+\\forget_password_page
+form input[type="text"],
+form input[type="tel"],
+form input[type="submit"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+\\reset_password_page
+form input[type="password"],
+form input[type="text"],
+form input[type="submit"],
+form input[type="button"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+#verification_code_container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+#verification_code,
+#user_entered_verification_code {
+    width: calc(50% - 5px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+#generate_code_button {
+    width: calc(50% - 5px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
