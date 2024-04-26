@@ -1,0 +1,6 @@
+<mapper namespace="com.example.dao.TypeInfoDao">
+    <select id="findByName" resultType="com.example.entity.TypeInfo">
+        select * from type_info where 1 = 1
+        <if test="name != null and name != 'all' and name != ''"> and `name` like concat('%', #{name}, '%') </if>
+    </select>
+</mapper>

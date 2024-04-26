@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>详情页面</title>
+    <style>
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            height: 400px;
+        }
+        .product img {
+            float: left;
+            margin-right: 10px;
+            height: 300px;
+        }
+        .product h2 {
+            margin: 0;
+        }
+        .product p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="product">
+    <img src="./img/file.jpg" alt="产品图片">
+    <h1 id="type"></h1>
+    <h4 id="param1"></h4>
+    <h4 id="param2"></h4>
+    <!--<h4 id="param3"></h4>-->
+    <h4 id="param4"></h4>
+</div>
+
+<div class="product">
+    <div style="float: left">
+    <h1>套餐一</h1>
+    <h4>48元（1次）</h4>
+    <h4>原价：68元</h4>
+    <!--<h4 id="param3"></h4>-->
+    <h4>使用周期：5天</h4>
+    <button onclick="goumai1()">购买</button>
+    </div>
+    <div style="float: left;margin-left: 250px">
+        <h1>套餐二</h1>
+        <h4>168元（6次）</h4>
+        <h4>原价：408元</h4>
+        <!--<h4 id="param3"></h4>-->
+        <h4>使用周期：30天</h4>
+        <button onclick="goumai1()">购买</button>
+    </div>
+    <div style="float: left;margin-left: 250px">
+        <h1>套餐三</h1>
+        <h4>500元（6次）</h4>
+        <h4>原价：800元</h4>
+        <!--<h4 id="param3"></h4>-->
+        <h4>使用周期：180天</h4>
+        <button onclick="goumai1()">购买</button>
+    </div>
+</div>
+
+
+<script>
+    var type = localStorage.getItem('type');
+    var param1 = localStorage.getItem('param1');
+    var param2 = localStorage.getItem('param2');
+    /*var param3 = localStorage.getItem('param3');*/
+    var param4 = localStorage.getItem('param4');
+    console.log(param1, param2); // 输出：value1 value2
+    document.getElementById('type').innerHTML = type;
+    document.getElementById('param1').innerHTML = param1;
+    document.getElementById('param2').innerHTML = param2;
+    /*document.getElementById('param3').innerHTML = param3;*/
+    document.getElementById('param4').innerHTML = param4;
+    // 清除使用后的存储项
+    /*localStorage.removeItem('type');
+    localStorage.removeItem('param1');
+    localStorage.removeItem('param2');
+    localStorage.removeItem('param3');
+    localStorage.removeItem('param4');*/
+
+    function goumai1() {
+        var xhr = new XMLHttpRequest();
+        var url = "http://localhost:8888/typeInfo/add";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                alert("购买成功")
+            }
+        };
+        /*var data = {
+            type:type,
+            param1:param1,
+            param2:param2,
+            param4:param4
+        };
+        var str = JSON.stringify(data)*/
+        xhr.send("param1="+param1+"&param2="+param2+"&param4="+param4+"&type="+type);
+
+    }
+    function goumai2() {
+
+    }
+    function goumai3() {
+
+    }
+
+</script>
+
+
+
+</body>
+</html>

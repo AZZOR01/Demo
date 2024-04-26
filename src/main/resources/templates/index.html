@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>健身卡展示页面</title>
+    <style>
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            height: 400px;
+        }
+        .product img {
+            float: left;
+            margin-right: 10px;
+            height: 300px;
+        }
+        .product h2 {
+            margin: 0;
+        }
+        .product p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="jsk" class="product">
+    <img src="./img/file.jpg">
+    <h1 id="type1">白银卡</h1>
+    <h4 id="param1">支持场馆：XXXXXXXX</h4>
+    <h4 id="param2">使用周期：XXXXXXXX</h4>
+    <!--<h4 id="param3">使用次数：XXXXXXXX</h4>-->
+    <h4 id="param4">售价：100</h4>
+    <!--<a href="/front/goodsInfo.html" @click="xiangqing()">点击查看</a>-->
+    <a href="#" onclick="xiangqing1()" >点击查看</a>
+</div>
+
+<div class="product">
+    <img src="./img/file.jpg">
+    <h1 id="type2">黄金卡</h1>
+    <h4 id="param21">支持场馆：XXXXXXXX</h4>
+    <h4 id="param22">使用周期：XXXXXXXX</h4>
+    <!--<h4 id="param23">使用次数：XXXXXXXX</h4>-->
+    <h4 id="param24">售价：200</h4>
+    <a href="#" onclick="xiangqing2()" >点击查看</a>
+</div>
+
+<div class="product">
+    <img src="./img/file.jpg">
+    <h1 id="type3">钻石卡</h1>
+    <h4 id="param31">支持场馆：XXXXXXXX</h4>
+    <h4 id="param32">使用周期：XXXXXXXX</h4>
+    <!--<h4 id="param33">使用次数：XXXXXXXX</h4>-->
+    <h4 id="param34">售价：300</h4>
+    <a href="#" onclick="xiangqing3()" >点击查看</a>
+</div>
+
+<script>
+
+    /*var fruits = [
+    ["file.jpg", "白银卡", "支持场馆：XXXXXXXX", "使用周期：XXXXXXXX", "使用次数：XXXXXXXX", "售价：XXXXXXX"],
+    ["file.jpg", "黄金卡", "支持场馆：XXXXXXXX", "使用周期：XXXXXXXX", "使用次数：XXXXXXXX", "售价：XXXXXXX"]
+    ];
+    var text = "<img src='./img/file.jpg'>";
+    for (var i = 0; i < fruits.length; i++) {
+        text += "<li>" + fruits[i] + "</li>";
+    }
+    text += "</ul>";
+    document.getElementById("demo").innerHTML = text;*/
+
+
+
+
+    function xiangqing1(){
+        localStorage.setItem('type', document.getElementById("type1").innerText);
+        localStorage.setItem('param1', document.getElementById("param1").innerText);
+        localStorage.setItem('param2', document.getElementById("param2").innerText);
+        /*localStorage.setItem('param3', document.getElementById("param3").innerText);*/
+        localStorage.setItem('param4', document.getElementById("param4").innerText);
+        window.location.href = '/front/goodsInfo.html';
+    }
+    function xiangqing2(){
+        localStorage.setItem('type', document.getElementById("type2").innerText);
+        localStorage.setItem('param1', document.getElementById("param21").innerText);
+        localStorage.setItem('param1', document.getElementById("param22").innerText);
+        /*localStorage.setItem('param3', document.getElementById("param23").innerText);*/
+        localStorage.setItem('param4', document.getElementById("param24").innerText);
+        window.location.href = '/front/goodsInfo.html';
+    }
+    function xiangqing3(){
+        localStorage.setItem('type', document.getElementById("type3").innerText);
+        localStorage.setItem('param1', document.getElementById("param31").innerText);
+        localStorage.setItem('param2', document.getElementById("param32").innerText);
+        /*localStorage.setItem('param3', document.getElementById("param33").innerText);*/
+        localStorage.setItem('param4', document.getElementById("param34").innerText);
+        window.location.href = '/front/goodsInfo.html';
+    }
+
+</script>
+
+
+</body>
+</html>
