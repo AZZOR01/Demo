@@ -1,10 +1,11 @@
 package com.cpt202.demo.controller;
 
 import com.cpt202.demo.entity.TypeInfo;
+import com.cpt202.demo.service.TypeInfoService;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
+
+ 
 
 @RestController
 @RequestMapping(value = "/typeInfo")
