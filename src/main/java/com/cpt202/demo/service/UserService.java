@@ -1,7 +1,7 @@
-package com.CPT202.fitnessB19.service;
+package com.cpt202.demo.service;
 
-import com.CPT202.fitnessB19.repository.UserRepo;
-import com.CPT202.fitnessB19.model.User;
+import com.cpt202.demo.repository.UserRepo;
+import com.cpt202.demo.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

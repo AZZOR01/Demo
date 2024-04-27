@@ -1,6 +1,7 @@
-package com.CPT202.fitnessB19.controller;
+package com.cpt202.demo.controller;
 
-import com.CPT202.fitnessB19.service.UserService;
+import com.cpt202.demo.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
